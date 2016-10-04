@@ -1,6 +1,6 @@
 #list of rooms stored as tuples
 #player moves, monster stays, room stays
-#player must find room
+#player must find door room
 #add grid with breadcrumbs
 
 #IMPORTANT note__
@@ -20,39 +20,65 @@ door_room = random.choice(rooms)
 
 #Set up player
 player_room = random.choice(rooms)
+
+#if player_room == monster_room or door_room:
+#    player_room = random.choice(rooms)
+#else:
+#    print("player is in room {}".format(player_room))
+
 player_x = player_room[0]
 player_y = int(player_room[1])
 
 def player_movement():
     move = input("Where would you like to move? ")
-    if move == "UP":
+    if move == "up":
         #take player_room y coordinate
         #move it up in the y index, if possible movement exists
         try:
             global player_y
             player_y += 1
             y_index_list.index(player_y)
+            player_room[1] += 1
         except ValueError:
             print("Not a valid movement!")
             player_y -= 1
-    elif move == "DOWN":
+
+    elif move == "down":
         try:
             global player_y
             player_y -= 1
             y_index_list.index(player_y)
+            player_room[1] -= 1
         except ValueError:
             print("Not a valid movement!")
             player_y += 1
-    print(player_y)
 
-player_movement()
+    elif move == "right":
+        try:
+            global player_x
+            player_x = x_index_list[(x_index_list.index(player_x)) + 1]
+            player_room[0] = player_x
+        except IndexError:
+            print("That's not a valid move!")
 
-#While True:
-#    if player_room == monster_room:
-#        print("The monster got you! \n Please play again!")
-#        break
-#    elif player_locaiton == door_room:
-#        print("You found the exit! \n Please play again!)
-#        break
-#    else:
-#        player_movement()
+    elif move == "left":
+        global player_x
+        if (x_index_list.index(player_x) - 1) >= 0:
+            player_x = x_index_list[(x_index_list.index(player_x)) - 1]
+            player_room[0] = player_x
+        else:
+            print("That's not a valid move!")
+
+    print(player_room)
+
+
+while True:
+    print("player is in room {}".format(player_room))
+    if player_room == monster_room:
+        print("The monster got you! \n Please play again!")
+        break
+    elif player_room == door_room:
+        print("You found the exit! \n Please play again!")
+        break
+    else:
+        player_movement()
