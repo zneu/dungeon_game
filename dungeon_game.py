@@ -70,7 +70,7 @@ def player_movement():
         else:
             print("That's not a valid move!")
 
-    else move == "quit"
+    else move == "quit":
         print("Thank you for playing!")
         break
 
