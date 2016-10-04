@@ -58,7 +58,7 @@ def player_movement():
             player_x = x_index_list[(x_index_list.index(player_x)) + 1]
             player_room[0] = player_x
         except IndexError:
-            print("That's not a valid move!")
+            print("That's not a  valid move!")
 
     elif move == "left":
         if (x_index_list.index(player_x) - 1) >= 0:
@@ -67,8 +67,10 @@ def player_movement():
         else:
             print("That's not a valid move!")
 
-    print(player_room)
+    else move == "quit"
+        print("")
 
+    print(player_room)
 
 while True:
     print("player is in room {}".format(player_room))
