@@ -18,17 +18,22 @@ rooms = (['a', 1], ['b', 1], ['c', 1], ['d', 1],
 x_index_list = ['a', 'b', 'c', 'd']
 y_index_list = [1, 2, 3, 4]
 
-#Generate rooms
-monster_room = random.choice(rooms)
-door_room = random.choice(rooms)
-
 #Set up player
 player_room = random.choice(rooms)
 
-#if player_room == monster_room or door_room:
-#    player_room = random.choice(rooms)
-#else:
-#    print("player is in room {}".format(player_room))
+#Generate rooms
+while True:
+    monster_room = random.choice(rooms)
+    if monster_room == player_room:
+        monster_room = random.choice(rooms)
+    else:
+        break
+while True:
+    door_room = random.choice(rooms)
+    if door_room == player_room:
+        door_room = random.choice(rooms)
+    else:
+        break
 
 player_x = player_room[0]
 player_y = int(player_room[1])
