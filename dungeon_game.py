@@ -70,9 +70,8 @@ def player_movement():
         else:
             print("That's not a valid move!")
 
-    else move == "quit":
-        print("Thank you for playing!")
-        break
+#    elif move == "quit":
+#        print("Thank you for playing!")
 
     print(player_room)
 
