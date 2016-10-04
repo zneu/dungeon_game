@@ -10,9 +10,9 @@
 import random
 
 #Establish rooms
-rooms = (['a', 1], ['b', 1], ['a', 2], ['b', 2])
-x_index_list = ['a', 'b']
-y_index_list = [1, 2]
+rooms = (['a', 1], ['b', 1], ['c', 1], ['d', 1], ['a', 2], ['b', 2], ['c', 2], ['d', 2], ['a', 3], ['b', 3], ['c', 3], ['d', 3], ['a', 4], ['b', 4], ['c', 4], ['d', 4])
+x_index_list = ['a', 'b', 'c', 'd']
+y_index_list = [1, 2, 3, 4]
 
 #Generate rooms
 monster_room = random.choice(rooms)
@@ -31,11 +31,12 @@ player_y = int(player_room[1])
 
 def player_movement():
     move = input("Where would you like to move? ")
+    global player_y
+    global player_x
     if move == "up":
         #take player_room y coordinate
         #move it up in the y index, if possible movement exists
         try:
-            global player_y
             player_y += 1
             y_index_list.index(player_y)
             player_room[1] += 1
@@ -45,7 +46,6 @@ def player_movement():
 
     elif move == "down":
         try:
-            global player_y
             player_y -= 1
             y_index_list.index(player_y)
             player_room[1] -= 1
@@ -55,14 +55,12 @@ def player_movement():
 
     elif move == "right":
         try:
-            global player_x
             player_x = x_index_list[(x_index_list.index(player_x)) + 1]
             player_room[0] = player_x
         except IndexError:
             print("That's not a valid move!")
 
     elif move == "left":
-        global player_x
         if (x_index_list.index(player_x) - 1) >= 0:
             player_x = x_index_list[(x_index_list.index(player_x)) - 1]
             player_room[0] = player_x
