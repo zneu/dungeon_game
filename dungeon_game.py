@@ -44,7 +44,7 @@ def player_movement():
             y_index_list.index(player_y)
             player_room[1] += 1
         except ValueError:
-            print("Not a valid movement!")
+            print("\nNot a valid movement!")
             player_y -= 1
 
     elif move == "down":
@@ -53,7 +53,7 @@ def player_movement():
             y_index_list.index(player_y)
             player_room[1] -= 1
         except ValueError:
-            print("Not a valid movement!")
+            print("\nNot a valid movement!")
             player_y += 1
 
     elif move == "right":
@@ -61,26 +61,29 @@ def player_movement():
             player_x = x_index_list[(x_index_list.index(player_x)) + 1]
             player_room[0] = player_x
         except IndexError:
-            print("That's not a  valid move!")
+            print("\nThat's not a  valid move!")
 
     elif move == "left":
         if (x_index_list.index(player_x) - 1) >= 0:
             player_x = x_index_list[(x_index_list.index(player_x)) - 1]
             player_room[0] = player_x
         else:
-            print("That's not a valid move!")
+            print("\nThat's not a valid move!")
 
     elif move == "quit":
-        print("Thank you for playing!")
+        print("\nThank you for playing!")
         quit()
 
     elif move == "help":
         show_help()
 
+    else:
+        print("\nhat's not a command!")
+
 show_help()
 
 while True:
-    print("player is in room {}".format(player_room))
+    print("\nplayer is in room {}".format(player_room))
     if player_room == monster_room:
         print("The monster got you! \n Please play again!")
         break
