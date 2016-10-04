@@ -10,7 +10,11 @@
 import random
 
 #Establish rooms
-rooms = (['a', 1], ['b', 1], ['c', 1], ['d', 1], ['a', 2], ['b', 2], ['c', 2], ['d', 2], ['a', 3], ['b', 3], ['c', 3], ['d', 3], ['a', 4], ['b', 4], ['c', 4], ['d', 4])
+rooms = (['a', 1], ['b', 1], ['c', 1], ['d', 1],
+['a', 2], ['b', 2], ['c', 2], ['d', 2],
+['a', 3], ['b', 3], ['c', 3], ['d', 3],
+['a', 4], ['b', 4], ['c', 4], ['d', 4])
+
 x_index_list = ['a', 'b', 'c', 'd']
 y_index_list = [1, 2, 3, 4]
 
@@ -30,10 +34,11 @@ player_x = player_room[0]
 player_y = int(player_room[1])
 
 def show_help():
-    print("\n\nType 'up', 'down', 'left', or 'right' to move your character. Type 'quit' to exit the application and 'help' to show this help text.\n\n ")
+    print("\nType 'up', 'down', 'left', or 'right' to move your character. "
+    "Type 'quit' to exit the application and 'help' to show this help text.")
 
 def player_movement():
-    move = input("Where would you like to move? ")
+    move = input("Where would you like to move? ").lower()
     global player_y
     global player_x
     if move == "up":
@@ -85,10 +90,10 @@ show_help()
 while True:
     print("\nplayer is in room {}".format(player_room))
     if player_room == monster_room:
-        print("The monster got you! \n Please play again!")
+        print("The monster got you! \nPlease play again!")
         break
     elif player_room == door_room:
-        print("You found the exit! \n Please play again!")
+        print("You found the exit! \nPlease play again!")
         break
     else:
         player_movement()
