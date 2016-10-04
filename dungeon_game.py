@@ -30,7 +30,7 @@ player_x = player_room[0]
 player_y = int(player_room[1])
 
 def show_help():
-    print("\n\nType 'up', 'down', 'left', or 'right' to move your character.\n\n")
+    print("\n\nType 'up', 'down', 'left', or 'right' to move your character. Type 'quit' to exit the application and 'help' to show this help text.\n\n ")
 
 def player_movement():
     move = input("Where would you like to move? ")
@@ -70,8 +70,12 @@ def player_movement():
         else:
             print("That's not a valid move!")
 
-#    elif move == "quit":
-#        print("Thank you for playing!")
+    elif move == "quit":
+        print("Thank you for playing!")
+        quit()
+
+    elif move == "help":
+        show_help()
 
 show_help()
 
