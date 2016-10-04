@@ -29,6 +29,9 @@ player_room = random.choice(rooms)
 player_x = player_room[0]
 player_y = int(player_room[1])
 
+def show_help():
+    print("Type 'up', 'down', 'left', or 'right' to move your character. Type 'quit' to exit the application")
+
 def player_movement():
     move = input("Where would you like to move? ")
     global player_y
@@ -68,7 +71,8 @@ def player_movement():
             print("That's not a valid move!")
 
     else move == "quit"
-        print("")
+        print("Thank you for playing!")
+        break
 
     print(player_room)
 
