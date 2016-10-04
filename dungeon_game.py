@@ -30,7 +30,7 @@ player_x = player_room[0]
 player_y = int(player_room[1])
 
 def show_help():
-    print("Type 'up', 'down', 'left', or 'right' to move your character. Type 'quit' to exit the application")
+    print("\n\nType 'up', 'down', 'left', or 'right' to move your character.\n\n")
 
 def player_movement():
     move = input("Where would you like to move? ")
@@ -73,7 +73,7 @@ def player_movement():
 #    elif move == "quit":
 #        print("Thank you for playing!")
 
-    print(player_room)
+show_help()
 
 while True:
     print("player is in room {}".format(player_room))
